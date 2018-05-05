@@ -13,3 +13,4 @@ Below are the steps to create the Job:
 
 1. Create freestyle job in jenkins named as Build_Java_Jenkins_CI.
 2. 
+![SCM](../master/images/scm.PNG)
