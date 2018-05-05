@@ -13,6 +13,12 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+	
+	 <scm>
+	<connection>scm:git:git@github.com:sakshi151990/Jenkins_CI_java.git</connection>
+	<url>scm:git:git@github.com:sakshi151990/Jenkins_CI_java.git</url>
+	<developerConnection>scm:git:git@github.com:sakshi151990/Jenkins_CI_java.git</developerConnection>
+  </scm>
   <build>
 		<plugins>
 		<plugin>
