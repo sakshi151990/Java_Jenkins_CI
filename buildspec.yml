@@ -1,0 +1,44 @@
+version: 0.2
+env:
+  variables:
+    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
+              
+phases:
+  install:
+    commands:
+      - echo install
+      - apt-get update -y
+      - apt-get install -y maven
+      
+    finally:
+      - command
+      - command
+  pre_build:
+    commands:
+      - echo pre-build
+      
+    
+  build:
+    commands:
+      - echo pre-build
+      - mvn install -f Jenkins_CI_java/
+    finally:
+      - command
+      - command
+  post_build:
+    commands:
+      - command
+      - command
+    finally:
+      - command
+      - command
+artifacts:
+  files:
+    - Jenkins_CI_java/target/*.jar
+    - location
+  discard-paths: yes
+  base-directory: location
+cache:
+  paths:
+    - path
+    - path
