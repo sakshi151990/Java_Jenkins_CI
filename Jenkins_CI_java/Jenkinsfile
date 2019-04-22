@@ -1,37 +1,30 @@
 pipeline {
-agent any
+   agent any
    tools {
     maven 'maven'
-  }
-  stages {
-    
-  stage ('checkOut') {
-    steps{
-    
-    git branch: 'xebia_poc', credentialsId: 'jenkinsuser', url: 'https://github.com/sakshi151990/Java_Jenkins_CI.git'
-    
+   }
+   stages {
+    stage ('checkOut') {
+      steps{
+        git branch: 'xebia_poc', credentialsId: 'jenkinsuser', url: 'https://github.com/sakshi151990/Java_Jenkins_CI.git'
+      }
     }
-    
-    
-}
-
-stage ('Build') {
-  steps{
-echo "Build"
-       bat 'mvn clean compile -f Jenkins_CI_java/pom.xml
-
-            }}
-stage ('Test') {
-   
- steps {
-    echo "Testing"
-                bat 'mvn -Dmaven.test.failure.ignore=true test -f Jenkins_CI_java/pom.xml' 
-            }
-            post {
-                success {
-                    junit 'target/surefire-reports/**/*.xml' 
-                }
-
-  }
-}
+    stage ('Build') {
+      steps{
+        echo "Build"
+        bat 'mvn clean compile -f Jenkins_CI_java/pom.xml'
+      }
+    }
+    stage ('Test') {
+      steps {
+        echo "Testing"
+        bat 'mvn -Dmaven.test.failure.ignore=true test -f Jenkins_CI_java/pom.xml' 
+        }
+       post {
+        success {
+                junit 'target/surefire-reports/**/*.xml' 
+        }
+       }
+    }   
+   }
 }
