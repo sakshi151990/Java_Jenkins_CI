@@ -1,13 +1,17 @@
 #Xebia POC jenkinsfile
-pipeline {
-  agent any
-  stages {
-    stage('Build') {
-      steps {
-        
-        }
 
-      }
-    }
-  }
+pipeline {
+agent any
+  stages {
+    
+  stage ('checkOut') {
+    
+}
+
+stage ('Build') {
+
+}
+stage ('Test') {
+
+}
 }
