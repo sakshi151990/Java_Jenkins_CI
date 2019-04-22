@@ -3,14 +3,19 @@ agent any
   stages {
     
   stage ('checkOut') {
+    steps{
+    
+    git branch: 'xebia_poc', credentialsId: 'jenkinsuser', url: 'https://github.com/sakshi151990/Java_Jenkins_CI.git'
+    
+    }
     
 }
 
 stage ('Build') {
-
+echo "Build"
 }
 stage ('Test') {
-
+echo "test"
 }
 }
 }
