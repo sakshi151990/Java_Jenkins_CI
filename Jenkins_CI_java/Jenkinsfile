@@ -18,7 +18,7 @@ agent any
 stage ('Build') {
   steps{
 echo "Build"
-       bat 'mvn clean compile -f Jenkins_CI_java\pom.xml
+       bat 'mvn clean compile -f Jenkins_CI_java/pom.xml
 
             }}
 stage ('Test') {
