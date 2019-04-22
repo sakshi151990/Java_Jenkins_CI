@@ -18,11 +18,20 @@ agent any
 stage ('Build') {
   steps{
 echo "Build"
-       bat 'mvn --version'
-  }}
+       bat 'mvn clean compile -f Jenkins_CI_java\pom.xml
+
+            }}
 stage ('Test') {
-  steps{
-echo "test"
-  }}
+   
+ steps {
+    echo "Testing"
+                bat 'mvn -Dmaven.test.failure.ignore=true test -f Jenkins_CI_java\pom.xml' 
+            }
+            post {
+                success {
+                    junit 'target\surefire-reports\**\*.xml' 
+                }
+
+  }
 }
 }
