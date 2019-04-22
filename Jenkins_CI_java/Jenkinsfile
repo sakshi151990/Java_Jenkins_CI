@@ -26,6 +26,11 @@ pipeline {
                 junit 'Jenkins_CI_java/target/surefire-reports/**/*.xml' 
         }
        }
-    }   
+    }
+    stage ('Package') {
+      steps {
+        echo "Packaging"
+        bat 'mvn install -f Jenkins_CI_java/pom.xml' 
+        }  
    }
 }
