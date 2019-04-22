@@ -25,11 +25,11 @@ stage ('Test') {
    
  steps {
     echo "Testing"
-                bat 'mvn -Dmaven.test.failure.ignore=true test -f Jenkins_CI_java\pom.xml' 
+                bat 'mvn -Dmaven.test.failure.ignore=true test -f Jenkins_CI_java/pom.xml' 
             }
             post {
                 success {
-                    junit 'target\surefire-reports\**\*.xml' 
+                    junit 'target/surefire-reports/**/*.xml' 
                 }
 
   }
