@@ -1,5 +1,8 @@
 pipeline {
 agent any
+   tools {
+    maven 'maven'
+  }
   stages {
     
   stage ('checkOut') {
@@ -15,6 +18,7 @@ agent any
 stage ('Build') {
   steps{
 echo "Build"
+       sh 'mvn --version'
   }}
 stage ('Test') {
   steps{
