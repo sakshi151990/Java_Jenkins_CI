@@ -44,12 +44,14 @@ pipeline {
       }
      }
       stage ("Push to DockerHub"){ 
-      withDockerRegistry(credentialsId: 'dockerhub', url: 'https://index.docker.io/v1/') {
+          steps {
+              withDockerRegistry(credentialsId: 'dockerhub', url: 'https://index.docker.io/v1/') {
           sh '''
           docker tag unimoni_poc:latest sakshikansal/unimoni_poc:latest
           docker push sakshikansal/unimoni_poc:latest'''
           
-}
+               }
+          }    
       }
    }
 }
