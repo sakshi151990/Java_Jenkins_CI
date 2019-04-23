@@ -1,5 +1,5 @@
 pipeline {
-   agent any
+   agent slavedocker
    tools {
     jdk 'java'
     maven 'maven'
@@ -13,13 +13,13 @@ pipeline {
     stage ('Build') {
       steps{
         echo "Build"
-        bat 'mvn clean compile -f Jenkins_CI_java/pom.xml'
+        sh 'mvn clean compile -f Jenkins_CI_java/pom.xml'
       }
     }
     stage ('Test') {
       steps {
         echo "Testing"
-        bat 'mvn -Dmaven.test.failure.ignore=true test -f Jenkins_CI_java/pom.xml' 
+        sh 'mvn -Dmaven.test.failure.ignore=true test -f Jenkins_CI_java/pom.xml' 
         }
        post {
         success {
@@ -30,7 +30,14 @@ pipeline {
     stage ('Package') {
       steps {
         echo "Packaging"
-        bat 'mvn install -f Jenkins_CI_java/pom.xml' 
+        sh 'mvn install -f Jenkins_CI_java/pom.xml' 
+        }  
+     stage ('Build Image') {
+      steps {
+        echo "Build Image"
+        sh '''docker --version
+             docker build -t unimoni_poc ${WORKSPACE}/Jenkins_CI_java
+             docker images'''
         }  
    }
 }
