@@ -39,7 +39,7 @@ pipeline {
       steps {
         echo "Build Image"
         sh '''docker --version
-             docker build -t unimoni_poc --build-arg APPWORKSPACE=${WORKSPACE} -f ${WORKSPACE}/Jenkins_CI_java/Dockerfile
+             docker build -t unimoni_poc ${WORKSPACE}/Jenkins_CI_java --build-arg APPWORKSPACE=${WORKSPACE}
              docker images'''
       }
      }  
