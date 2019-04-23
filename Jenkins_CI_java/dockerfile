@@ -1,4 +1,6 @@
 FROM openjdk:latest
 WORKDIR /app
+ARG APPWORKSPACE
+ENV WORKSPACE=$APPWORKSPACE
 COPY ${WORKSPACE}/Jenkins_CI_java/target/Jenkins_CI_java-0.0.1-SNAPSHOT.jar /app
 CMD ["java -jar Jenkins_CI_java-0.0.1-SNAPSHOT.jar"]
