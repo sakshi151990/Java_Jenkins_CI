@@ -3,4 +3,4 @@ WORKDIR /app
 ARG APPWORKSPACE
 ENV WORKSPACE=$APPWORKSPACE
 COPY ./target/Jenkins_CI_java-0.0.1-SNAPSHOT.jar /app
-CMD ["java -jar Jenkins_CI_java-0.0.1-SNAPSHOT.jar"]
+CMD java -jar Jenkins_CI_java-0.0.1-SNAPSHOT.jar
