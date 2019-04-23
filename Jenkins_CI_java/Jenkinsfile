@@ -1,5 +1,7 @@
 pipeline {
-   agent slavedocker
+   agent  {
+  label 'slavedocker'
+  }
    tools {
     jdk 'java'
     maven 'maven'
