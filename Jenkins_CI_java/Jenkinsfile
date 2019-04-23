@@ -38,6 +38,7 @@ pipeline {
         sh '''docker --version
              docker build -t unimoni_poc ${WORKSPACE}/Jenkins_CI_java
              docker images'''
-        }  
+      }
+      }  
    }
 }
