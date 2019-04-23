@@ -1,4 +1,4 @@
 FROM openjdk:latest
 WORKDIR /app
-COPY Jenkins_CI_java/target/Jenkins_CI_java.jar /app
+COPY {WORKSPACE}/Jenkins_CI_java/target/Jenkins_CI_java.jar /app
 CMD ["java -jar Jenkins_CI_java.jar"]
