@@ -32,6 +32,7 @@ pipeline {
         echo "Packaging"
         sh 'mvn install -f Jenkins_CI_java/pom.xml' 
         }  
+    }    
      stage ('Build Image') {
       steps {
         echo "Build Image"
@@ -39,6 +40,6 @@ pipeline {
              docker build -t unimoni_poc ${WORKSPACE}/Jenkins_CI_java
              docker images'''
       }
-      }  
+     }  
    }
 }
