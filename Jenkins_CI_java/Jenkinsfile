@@ -39,7 +39,7 @@ pipeline {
       steps {
         echo "Build Image"
         sh '''docker --version
-             docker build -t unimoni_poc ${WORKSPACE}/Jenkins_CI_java
+             docker build -t unimoni_poc -e WORKSPACE=${WORKSPACE} ${WORKSPACE}/Jenkins_CI_java
              docker images'''
       }
      }  
