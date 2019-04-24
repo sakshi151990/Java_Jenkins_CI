@@ -51,7 +51,23 @@ pipeline {
           docker push sakshikansal/unimoni_poc:latest'''
           
                }
-          }    
+          } 
+         stage ("Deploy to openshift"){
+         steps {
+            withCredentials([string(credentialsId: 'openshiftlogin', variable: 'openshiftlogin')]) {
+            sh '''
+              oc login https://api.starter-us-east-1.openshift.com --token=${openshiftlogin}
+
+               oc get dc | grep "samplejavaci"
+             if [ $? -eq 0 ]; then
+                oc delete dc "samplejavaci"
+             fi
+
+            oc create -f ${WORKSPACE}/Jenkins_CI_java/DeploymentConfig.yaml
+            oc deploy "samplejavaci" '''
+          }
+         }
+         }
       }
    }
 }
