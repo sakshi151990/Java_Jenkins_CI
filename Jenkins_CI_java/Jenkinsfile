@@ -52,8 +52,10 @@ pipeline {
           
                }
           } 
+
+      } 
          stage ("Deploy to openshift"){
-         steps {
+          steps {
             withCredentials([string(credentialsId: 'openshiftlogin', variable: 'openshiftlogin')]) {
             sh '''
               oc login https://api.starter-us-east-1.openshift.com --token=${openshiftlogin}
@@ -65,8 +67,8 @@ pipeline {
 
             oc create -f ${WORKSPACE}/Jenkins_CI_java/DeploymentConfig.yaml
             oc deploy "samplejavaci" '''
+            }
           }
-         }
          }
       }
    }
