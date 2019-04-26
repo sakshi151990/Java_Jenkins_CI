@@ -65,8 +65,8 @@ pipeline {
                 oc delete dc "samplejavaci"
              fi
             oc apply -f ${WORKSPACE}/Jenkins_CI_java/PersistentVolumeClaim.yaml
-            oc create -f ${WORKSPACE}/Jenkins_CI_java/DeploymentConfig.yaml
-            oc rollout latest "samplejavaci" '''
+            oc create -f ${WORKSPACE}/Jenkins_CI_java/DeploymentConfig.yaml '''
+            
             }
           }
          }
