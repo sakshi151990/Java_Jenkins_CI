@@ -64,7 +64,7 @@ pipeline {
              if [ $? -eq 0 ]; then
                 oc delete dc "samplejavaci"
              fi
-            oc apply -f PersistentVolumeClaim.yaml
+            oc apply -f ${WORKSPACE}/Jenkins_CI_java/PersistentVolumeClaim.yaml
             oc create -f ${WORKSPACE}/Jenkins_CI_java/DeploymentConfig.yaml
             oc rollout latest "samplejavaci" '''
             }
