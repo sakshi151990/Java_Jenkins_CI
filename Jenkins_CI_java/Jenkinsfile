@@ -67,7 +67,7 @@ pipeline {
 
             oc create -f ${WORKSPACE}/Jenkins_CI_java/DeploymentConfig.yaml
             oc deploy "samplejavaci" 
-            oc volume dc/samplejavaci --add --claim-size 512M --mount-path /data --name volumepoc
+            oc volume dc/samplejavaci --add --claim-size 512M --mount-path /data --name volumepoc '''
             }
           }
          }
