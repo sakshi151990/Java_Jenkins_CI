@@ -8,6 +8,11 @@ Prerequisites:
 1. Java and Jenkins should be installed in the system.
 2. Maven, Java should be configured in Jenkins.
 
+
+
+
+
+
 Below are the steps to create the Job:
 
 
